@@ -30,6 +30,7 @@ parts:
     build-packages:
       - libbsd-dev
       - libncurses5-dev
+      - pkg-config
     organize:
       usr/local/bin/mg: bin/mg
       usr/local/man/man1/mg.1: usr/share/man/man1/mg.1

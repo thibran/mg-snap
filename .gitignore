@@ -1,0 +1,8 @@
+# build directories
+parts/
+prime/
+stage/
+snap/
+
+# snap package
+*.snap

@@ -1,0 +1,37 @@
+name: mg-thibran
+version: 'master'
+summary: OpenBSD micro Emacs clone
+description: |
+  mg is intended to be a small, fast, and portable editor for
+  people who can't (or don't want to) run emacs for one reason
+  or another, or are not familiar with the vi editor. It is
+  compatible with emacs because there shouldn't be any reason to
+  learn more editor types than emacs or vi.
+
+  https://man.openbsd.org/mg.1
+
+grade: devel        # stable devel
+confinement: strict # strict devmode
+
+version-script: |
+  cd parts/mg/src
+  echo $(git rev-parse HEAD | cut -c1-7)
+
+apps:
+  mg:
+    command: bin/mg
+    plugs: [home]
+
+parts:
+  mg:
+    plugin: make
+    source: "https://github.com/hboetes/mg.git"
+    make-parameters: ["STATIC=yesplease"]
+    build-packages:
+      - libbsd-dev
+      - libncurses5-dev
+    organize:
+      usr/local/bin/mg: bin/mg
+      usr/local/man/man1/mg.1: usr/share/man/man1/mg.1
+    stage:
+      - -usr/local

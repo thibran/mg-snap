@@ -10,7 +10,7 @@ description: |
 
   https://man.openbsd.org/mg.1
 
-grade: devel        # stable devel
+grade: stable       # stable devel
 confinement: strict # strict devmode
 
 version-script: |

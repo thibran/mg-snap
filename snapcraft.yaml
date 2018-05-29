@@ -26,6 +26,7 @@ parts:
   mg:
     plugin: make
     source: "https://github.com/hboetes/mg.git"
+    source-depth: 1
     make-parameters: ["STATIC=yesplease"]
     build-packages:
       - libbsd-dev

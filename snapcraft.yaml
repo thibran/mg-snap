@@ -10,8 +10,9 @@ description: |
 
   https://man.openbsd.org/mg.1
 
-grade: stable       # stable devel
-confinement: strict # strict devmode
+grade: devel          # stable devel
+confinement: strict    # strict devmode
+base: core16
 
 version-script: |
   cd parts/mg/src
@@ -32,6 +33,7 @@ parts:
       - libbsd-dev
       - libncurses5-dev
       - pkg-config
+      - gcc
     organize:
       usr/local/bin/mg: bin/mg
       usr/local/man/man1/mg.1: usr/share/man/man1/mg.1
